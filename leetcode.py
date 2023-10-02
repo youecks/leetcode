@@ -39,6 +39,8 @@ print_list(b)
 ########################
 
 # Write a function, linked_list_values, that takes in the head of a linked list as an argument. The function should return a list containing all values of the nodes in the linked list.
+
+# Iterative
 def linked_list_values(head):
   values = []
   current = head
@@ -46,3 +48,54 @@ def linked_list_values(head):
     values.append(current.val)
     current = current.next
   return values
+
+# Recursive
+
+def linked_list_values(head):
+  values = []
+  _linked_list_values(head, values)
+  return values
+
+def _linked_list_values(head, values):
+  if head is None:
+    return
+  values.append(head.val)
+  _linked_list_values(head.next, values)
+
+
+##############
+## Sum List ##
+##############
+
+# Iterative
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+def sum_list(head):
+  
+  current = head
+  total_sum = 0
+  
+  while current is not None:
+    total_sum += current.val
+    current = current.next 
+  
+  
+  return total_sum
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(1)
+
+
+# Recursive
+def sum_list(head):
+  if head is None:
+    return 0
+  return head.val + sum_list(head.next)
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
