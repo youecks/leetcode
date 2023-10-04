@@ -147,6 +147,7 @@ def linked_list_find(head, target):
 # Time: O(n)
 # Space: O(n)
 
+
 ####################
 ## Get Node Value ##
 ####################
@@ -185,10 +186,6 @@ def get_node_value(head, index):
   return None
     
 
-
-
-
-
 ##################
 ## Reverse List ##
 ##################
@@ -217,6 +214,7 @@ def reverse_list(head, prev = None):
    next = head.next
    head.next = prev
    return reverse_list(next, head)
+
 
 #################
 ## Zipper List ##
@@ -270,3 +268,104 @@ def zipper_lists(head_1, head_2):
 # m = length of list 2
 # Time: O(min(n, m))
 # Space: O(min(n, m))
+
+
+#################
+## Merge Lists ##
+#################
+
+# Iterative 
+
+class Node: 
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+def merge_lists(head_1, head_2):
+  dummy_head = Node(None)
+  tail = dummy_head
+  current_1 = head_1
+  current_2 = head_2
+  
+  while current_1 is not None and current_2 is not None:
+    if current_1.val < current_2.val:
+      tail.next = current_1
+      current_1 = current_1.next
+    else:
+      tail.next = current_2
+      current_2 = current_2.next
+    tail = tail.next
+    
+  if current_1 is not None:
+      tail.next = current_1
+    
+  if current_2 is not None:
+      tail.next = current_2
+  
+  return dummy_head.next
+
+# n = length of list 1
+# m = length of list 2
+# Time: O(min(n, m))
+# Space: O(1)
+
+# recursive
+
+def merge_lists(head_1, head_2):
+  if head_1 is None and head_2 is None:
+    return None
+  if head_1 is None:
+    return head_2
+  if head_2 is None:
+    return head_1
+  if head_1.val < head_2.val:
+    next_1 = head_1.next
+    head_1.next = merge_lists(next_1, head_2)
+    return head_1
+  else:
+    next_2 = head_2.next
+    head_2.next = merge_lists(head_1, next_2)
+    return head_2
+  
+# n = length of list 1
+# m = length of list 2
+# Time: O(min(n, m))
+# Space: O(min(n, m))
+
+
+######################
+## Is Univalue List ##
+######################
+
+# Iterative
+
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+def is_univalue_list(head):
+  current = head
+  while current is not None:
+    if head.val != current.val:
+      return False
+    current = current.next 
+  return True
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(1)
+
+# Recursive 
+
+def is_univalue_list(head, prev_val = None):
+  if head is None:
+    return True
+  if prev_val is None or head.val == prev_val:
+    return is_univalue_list(head.next, head.val)
+  else:
+    return False
+  
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
