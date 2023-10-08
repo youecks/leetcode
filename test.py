@@ -1,4 +1,4 @@
-# Depth First Iterative
+# Depth First (Recursive)
 
 class Node:
   def __init__(self, val):
@@ -6,18 +6,17 @@ class Node:
     self.left = None
     self.right = None
 
-def tree_min_value(root):
-  stack = [ root ]
-  smallest = float("inf")
-  while stack:
-    current = stack.pop()
-    if current.val < smallest:
-      smallest = current.val
+def max_path_sum(root):
+  if root is None:
+    return float("-inf")
 
-    if current.left is not None:
-      stack.append(current.left)
-    if current.right is not None:
-      stack.append(current.right)
+  if root.left is None and root.right is None:
+    return root.val
 
-  return smallest
+  return root.val + max(max_path_sum(root.left), max_path_sum(root.right))
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
+
   
