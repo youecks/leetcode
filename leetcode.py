@@ -904,3 +904,36 @@ def _path_finder(root, target):
 # n = number of nodes
 # Time: O(n)
 # Space: O(n)
+
+
+######################
+## Tree Value Count ##
+######################
+
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+def tree_value_count(root, target):
+  if root is None:
+    return 0
+
+  count = 0
+  stack = [ root ]
+  while stack:
+    current = stack.pop()
+    if current.val == target:
+      count += 1
+
+    if current.left is not None:
+      stack.append(current.left)
+    if current.right is not None:
+      stack.append(current.right)
+
+  return count
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
