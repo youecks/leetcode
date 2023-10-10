@@ -987,3 +987,42 @@ def bottom_right_value(root):
       queue.append(current.right)
 
   return current.val
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
+
+
+####################
+## All Tree Paths ##
+####################
+
+# Recursive
+
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.left = None
+    self.right = None
+
+def all_tree_paths(root):
+  if root is None:
+    return []
+  
+  if root.left is None and root.right is None:
+    return [ [root.val] ]
+  paths = []
+
+  left_sub_paths = all_tree_paths(root.left)
+  for sub_path in left_sub_paths:
+    paths.append([ root.val, *sub_path ])
+
+  right_sub_paths = all_tree_paths(root.right)
+  
+  for sub_path in right_sub_paths:
+    paths.append([ root.val, *sub_path ])
+  return paths
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)

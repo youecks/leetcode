@@ -3,20 +3,22 @@ class Node:
     self.val = val
     self.left = None
     self.right = None
+
+def all_tree_paths(root):
+  if root is None:
+    return []
   
-from collections import deque
+  if root.left is None and root.right is None:
+    return [ [root.val] ]
+  paths = []
 
-def bottom_right_value(root):
-  queue = deque([root])
+  left_sub_paths = all_tree_paths(root.left)
+  for sub_path in left_sub_paths:
+    paths.append([ root.val, *sub_path ])
 
-  while queue:
-    current = queue.popleft()
-
-    if current.left is not None:
-      queue.append(current.left)
-    
-    if current.right is not None:
-      queue.append(current.right)
-
-  return current.val
+  right_sub_paths = all_tree_paths(root.right)
+  
+  for sub_path in right_sub_paths:
+    paths.append([ root.val, *sub_path ])
+  return paths
 
