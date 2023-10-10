@@ -1101,3 +1101,40 @@ def fill_levels(root, levels, level_num):
 # n = number of nodes
 # Time: O(n)
 # Space: O(n)
+
+
+###############
+## Leaf List ##
+###############
+
+# Depth First Iterative
+
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+def leaf_list(root):
+  if root is None:
+    return [ ]
+  
+  leaves = []
+  stack = [ root ]
+  while stack:
+    current = stack.pop()
+
+    if current.left is None and current.right is None:
+      leaves.append(current.val)
+
+    if current.right is not None:
+      stack.append(current.right)
+
+    if current.left is not None:
+      stack.append(current.left)
+
+  return leaves
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
