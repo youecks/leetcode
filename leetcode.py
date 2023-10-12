@@ -1138,3 +1138,25 @@ def leaf_list(root):
 # n = number of nodes
 # Time: O(n)
 # Space: O(n)
+
+
+##############
+## Has Path ##
+##############
+
+# Depth First
+
+def has_path(graph, src, dst):
+  if src == dst:
+    return True
+  
+  for neighbor in graph[src]:
+    if has_path(graph, neighbor, dst) == True:
+      return True
+    
+  return False
+
+# n = number of nodes
+# e = number edges
+# Time: O(e)
+# Space: O(n)
