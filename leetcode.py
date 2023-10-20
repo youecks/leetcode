@@ -1583,3 +1583,37 @@ def closest_carrot(grid, starting_row, starting_col):
 # c = number of columns
 # Time: O(rc)
 # Space: O(rc)
+
+
+##################
+## Longest Path ##
+##################
+
+def longest_path(graph):
+  distance = {}
+  for node in graph:
+    if len(graph[node]) == 0:
+      distance[node] = 0
+      
+  for node in graph:
+    traverse_distance(graph, node, distance)
+    
+  return max(distance.values())
+
+def traverse_distance(graph, node, distance):
+  if node in distance:
+    return distance[node]
+  
+  largest = 0
+  for neighbor in graph[node]:
+    attempt = traverse_distance(graph, neighbor, distance)
+    if attempt > largest:
+      largest = attempt
+  
+  distance[node] = 1 + largest
+  return distance[node]
+
+# e = # edges
+# n = # nodes
+# Time: O(e)
+# Space: O(n)
