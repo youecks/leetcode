@@ -1650,10 +1650,10 @@ def traverse_distance(graph, node, distance):
 
 def build_graph(num_courses, prereqs):
   graph = {}
-  
+
   for course in range(num_courses):
     graph[course] = []
-    
+  
   for prereq in prereqs:
     a, b = prereq
     graph[a].append(b)
@@ -1705,7 +1705,7 @@ def inbounds(grid, row, col):
   row_inbounds = 0 <= row < len(grid)
   col_inbounds = 0 <= col < len(grid[0])
   return row_inbounds and col_inbounds
-  
+
 def traverse_island(grid, row, col, visited):
   if not inbounds(grid, row, col) or grid[row][col] == 'W':
     return visited
@@ -1734,33 +1734,33 @@ def traverse_island(grid, row, col, visited):
 
 # White Grey Black Algo
 
-def has_cycle(graph):
-  visiting = set()
-  visited = set()
+# def has_cycle(graph):
+#   visiting = set()
+#   visited = set()
 
-  for node in graph:
-  	if cycle_detect(graph, node, visiting, visited) == True:
-  		return True
+#   for node in graph:
+#   	if cycle_detect(graph, node, visiting, visited) == True:
+#   		return True
     
-  return False
+#   return False
 
-def cycle_detect(graph, node, visiting, visited):
-  if node in visited:
-  	return False
+# def cycle_detect(graph, node, visiting, visited):
+#   if node in visited:
+#   	return False
 
-  if node in visiting:
-  	return True
+#   if node in visiting:
+#   	return True
 
-  visiting.add(node)
+#   visiting.add(node)
 
-  for neighbor in graph[node]:
-    if cycle_detect(graph, neighbor, visiting, visited) == True:
-    	return True
+#   for neighbor in graph[node]:
+#     if cycle_detect(graph, neighbor, visiting, visited) == True:
+#     	return True
 
-  visiting.remove(node)
-  visited.add(node)
+#   visiting.remove(node)
+#   visited.add(node)
 
-  return False
+#   return False
 
 # n = number of nodes
 # Time: O(n^2)
