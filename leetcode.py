@@ -1726,3 +1726,42 @@ def traverse_island(grid, row, col, visited):
 # c = number of columns
 # Time: O(rc)
 # Space: O(rc)
+
+
+###############
+## Has Cycle ##
+###############
+
+# White Grey Black Algo
+
+def has_cycle(graph):
+  visiting = set()
+  visited = set()
+
+  for node in graph:
+  	if cycle_detect(graph, node, visiting, visited) == True:
+  		return True
+    
+  return False
+
+def cycle_detect(graph, node, visiting, visited):
+  if node in visited:
+  	return False
+
+  if node in visiting:
+  	return True
+
+  visiting.add(node)
+
+  for neighbor in graph[node]:
+    if cycle_detect(graph, neighbor, visiting, visited) == True:
+    	return True
+
+  visiting.remove(node)
+  visited.add(node)
+
+  return False
+
+# n = number of nodes
+# Time: O(n^2)
+# Space: O(n)
