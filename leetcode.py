@@ -1858,3 +1858,20 @@ def get_knight_moves(n, r, c):
     if 0 <= new_row < n and 0 <= new_col < n:
       inbounds_positions.append(pos)
   return inbounds_positions
+
+
+##################
+## Pair Product ##
+##################
+
+
+def pair_product(numbers, target_product):
+  previous_nums = {}
+  
+  for index, num in enumerate(numbers):
+    complement = target_product / num
+    
+    if complement in previous_nums:
+      return (index, previous_nums[complement])
+    
+    previous_nums[num] = index
