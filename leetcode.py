@@ -1864,7 +1864,6 @@ def get_knight_moves(n, r, c):
 ## Pair Product ##
 ##################
 
-
 def pair_product(numbers, target_product):
   previous_nums = {}
   
@@ -1875,3 +1874,20 @@ def pair_product(numbers, target_product):
       return (index, previous_nums[complement])
     
     previous_nums[num] = index
+
+# n = length of numbers list
+# Time: O(n)
+# Space: O(n)
+
+
+##################
+## Intersection ##
+##################
+
+def intersection(a, b):
+  set_a = set(a)
+  return [ item for item in b if item in set_a ]
+
+# n = length of array a, m = length of array b
+# Time: O(n+m)
+# Space: O(n)
