@@ -1934,3 +1934,22 @@ def is_prime(n):
 # n = input number
 # Time: O(square_root(n))
 # Space: O(1)
+
+########################
+## Contains Duplicate ##
+########################
+
+def containsDuplicate(nums):
+    hashset = set()
+    
+    for n in nums:
+        if n in hashset:
+            return True
+        hashset.add(n)
+    return False
+
+containsDuplicate([1,2,3,1])
+
+# n = input array
+# Time: O(n)
+# Space: O(1)
