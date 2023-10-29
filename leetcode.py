@@ -1953,3 +1953,29 @@ containsDuplicate([1,2,3,1])
 # n = input array
 # Time: O(n)
 # Space: O(1)
+
+
+########################
+## Linked List Values ##
+########################
+
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.next = None
+
+def linked_list_values(head):
+  current = head
+  values = []
+  
+  if head is None:
+    return
+  values.append(current.val)
+  linked_list_values(current.next)
+  
+  return values
+
+# n = number of nodes
+# Time: O(n)
+# Space: O(n)
+
