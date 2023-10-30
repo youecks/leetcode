@@ -2025,3 +2025,20 @@ def twoSum(nums, target):
 # n = number of elements 
 # Time: O(n)
 # Space: O(n)
+
+
+############################
+## Concatenation of Array ##
+############################
+
+def getConcatenation(nums):
+  newArr = []
+  
+  for i in range(2):
+    for num in nums:
+        newArr.append(num)
+  return newArr
+
+# n = length of array
+# Time: O(n)
+# Space: O(n)
