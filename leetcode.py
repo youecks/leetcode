@@ -1985,22 +1985,43 @@ def linked_list_values(head):
 ###################
 
 class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
-            return False
+  def isAnagram(self, s: str, t: str) -> bool:
+    if len(s) != len(t):
+      return False
 
-        # initialize hashmap
-        hmap_s ={}
-        hmap_t = {}
+    # initialize hashmap
+    hmap_s = {}
+    hmap_t = {}
 
-        # add string characters to hashmap
-        for i in range(len(s)):
-            hmap_s[s[i]] = 1 + hmap_s.get(s[i], 0)
-            hmap_t[t[i]] = 1 + hmap_t.get(t[i], 0)
+    # add string characters to hashmap
+    for i in range(len(s)):
+      hmap_s[s[i]] = 1 + hmap_s.get(s[i], 0)
+      hmap_t[t[i]] = 1 + hmap_t.get(t[i], 0)
 
-        if hmap_s == hmap_t:
-            return True
+    if hmap_s == hmap_t:
+      return True
 
 # n = number of char 
+# Time: O(n)
+# Space: O(n)
+
+
+#############
+## Two Sum ##
+#############
+
+def twoSum(nums, target):
+  prev_map = {}
+
+  for i, num in enumerate(nums, 0):
+    pair = target - num
+    print(pair)
+
+    if pair in prev_map:
+      return (prev_map[pair], i)
+    
+    prev_map[num] = i
+
+# n = number of elements 
 # Time: O(n)
 # Space: O(n)
