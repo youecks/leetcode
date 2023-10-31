@@ -2042,3 +2042,31 @@ def getConcatenation(nums):
 # n = length of array
 # Time: O(n)
 # Space: O(n)
+
+
+####################
+## Is Subsequence ##
+####################
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+      i = 0
+      j = 0
+
+      if len(s) == i:
+          return True
+
+      while i < len(s) and j < len(t):
+          if s[i] == t[j]:
+              i += 1
+          j += 1
+          
+          if i == len(s):
+              return True
+          else:
+              if j == len(t):
+                  return False
+
+# n = length s + length t
+# Time: O(n)
+# Space: O(1)
