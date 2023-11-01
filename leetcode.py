@@ -2100,13 +2100,33 @@ class Solution:
 def replaceElements(arr):
     
     currMax = -1
-    
+
     for i in range(len(arr) -1, -1, -1):
         newMax = max(currMax, arr[i])
         arr[i] = currMax
         currMax = newMax
     return arr
 
+# n = length of array
+# Time: O(n)
+# Space: O(1)
+
+
+###########################
+## Longest Common Prefix ##
+###########################
+
+class Solution:
+    def longestCommonPrefix(strs):
+        res = ""
+
+        for i in range(len(strs[0])):
+            for s in strs:
+                if i == len(s) or s[i] != strs[0][i]:
+                    return res
+            res += strs[0][i]
+        return res
+    
 # n = length of array
 # Time: O(n)
 # Space: O(1)
