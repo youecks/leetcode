@@ -2070,3 +2070,24 @@ class Solution:
 # n = length s + length t
 # Time: O(n)
 # Space: O(1)
+
+
+#########################
+## Length of Last Word ##
+#########################
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        i = len(s) - 1
+        l = 0
+        
+        while s[i] == ' ':
+            i -= 1
+        while i >= 0 and s[i] != ' ':
+            l += 1
+            i -= 1
+        return l
+
+# n = length input string
+# Time: O(n)
+# Space: O(1)
