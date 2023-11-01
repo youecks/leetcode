@@ -2091,3 +2091,22 @@ class Solution:
 # n = length input string
 # Time: O(n)
 # Space: O(1)
+
+
+############################################
+## Replace Elements with Greatest Element ##
+############################################
+
+def replaceElements(arr):
+    
+    currMax = -1
+    
+    for i in range(len(arr) -1, -1, -1):
+        newMax = max(currMax, arr[i])
+        arr[i] = currMax
+        currMax = newMax
+    return arr
+
+# n = length of array
+# Time: O(n)
+# Space: O(1)
