@@ -2144,3 +2144,32 @@ def removeElement(nums, val):
             nums[k] = nums[i]
             k += 1
     return k
+
+
+# Time: O(n)
+# Space: O(1)
+
+
+
+########################
+## Isomorphic Strings ##
+########################
+
+def isIsomorphic(s, t):
+    mapS = {}
+    mapT = {}
+
+    for i in range(len(s)):
+        c1 = s[i]
+        c2 = t[i]
+
+        if (c1 in mapS and mapS[c1] != c2) or (c2 in mapT and mapT[c2] != c1):
+            return False
+        
+        mapS[c1] = c2
+        mapT[c2] = c1
+    return True
+
+# n = length of strings
+# Time: O(n)
+# Space: O(1)
