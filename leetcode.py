@@ -2192,4 +2192,29 @@ def majorityElement(nums):
 
 # n = length of strings
 # Time: O(n)
-# Space: O(1)
+# Space: O(n)
+
+
+#######################################
+## Find the Difference of Two Arrays ##
+#######################################
+
+def findDifference(nums1, nums2):
+    nums_set1 = set(nums1)
+    nums_set2 = set(nums2)
+    result1 = set()
+    result2 = set()
+
+    for n in nums1:
+        if n not in nums_set2:
+            result1.add(n)
+
+    for n in nums2:
+        if n not in nums_set1:
+            result2.add(n)
+    
+    return [list(result1), list(result2)]
+
+# n = length of array
+# Time: O(n + m)
+# Space: O(n + m)
