@@ -2218,3 +2218,55 @@ def findDifference(nums1, nums2):
 # n = length of array
 # Time: O(n + m)
 # Space: O(n + m)
+
+####################
+## Weekend Review ##
+####################
+
+def twoSum(nums, t):
+    hashmap = {}
+
+    for i, num in enumerate(nums, 0):
+        comp = t - num 
+    
+        if comp in hashmap:
+            # return index of both nums in hashmap
+            return (hashmap[comp], i)
+        # add to hashmap
+        hashmap[num] = i
+        
+print(twoSum([2,7,11,15], 9))
+
+def longest_common_prefix(arr):
+    tracker = ''
+
+    # for the length of flower do this 
+    for i in range(len(arr[0])):
+        # for each index/string in the array do this
+        for es in arr:
+            # if the char in each string is not equal to the char in flower return tracker
+            if i == len(es) or es[i] != arr[0][i]:
+                return tracker
+        tracker += arr[0][i]
+
+    return tracker
+        
+
+######################
+## Pascals Triangle ##
+######################
+
+def generate(numRows):
+    res = []
+
+    for i in range(numRows - 1):
+        temp = [0] + res[-1] + [0]
+        row = []
+        for j in range(len(res[-1]) + 1):
+            row.append(temp[j] + temp[j + 1])
+        res.append(row)
+    return res
+
+# n = number of rows
+# Time: O(n^2)
+# Space: O(n^2)
