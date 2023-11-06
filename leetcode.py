@@ -2243,9 +2243,9 @@ def longest_common_prefix(arr):
     # for the length of flower do this 
     for i in range(len(arr[0])):
         # for each index/string in the array do this
-        for es in arr:
+        for eachstring in arr:
             # if the char in each string is not equal to the char in flower return tracker
-            if i == len(es) or es[i] != arr[0][i]:
+            if i == len(eachstring) or eachstring[i] != arr[0][i]:
                 return tracker
         tracker += arr[0][i]
 
@@ -2286,3 +2286,22 @@ def pivotIndex(nums):
             return i
         leftSum += nums[i]
     return -1
+
+
+#####################################
+## Sign of the Product of an Array ##
+#####################################
+
+def arraySign(nums):
+    neg = 0
+
+    for n in nums:
+        if n == 0:
+            return 0
+        neg += (1 if n < 0 else 0)
+
+    return -1 if neg % 2 else 1
+
+# n = length of array
+# Time: O(n)
+# Space: O(n)
