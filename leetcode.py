@@ -2449,20 +2449,49 @@ class MyHashMap:
 ## Group Anagrams ##
 ####################
 
-class Solution:
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        res = defaultdict(list)
+# class Solution:
+#     def groupAnagrams(strs):
+#         # res = defaultdict(list)
 
-        for s in strs: 
-            count = [0] * 26 # a ... z
+#         for s in strs: 
+#             count = [0] * 26 # a ... z
 
-            for c in s:
-                count[ord(c) - ord("a")] += 1
+#             for c in s:
+#                 count[ord(c) - ord("a")] += 1
 
-            res[tuple(count)].append(s)
+#             res[tuple(count)].append(s)
         
-        return res.values()
+#         return res.values()
 
 # m = number strings given n = length of each string
 # Time: O(n * m)
 # Space: O(n * m)
+
+#############################
+##  Next Greater Element I ##
+#############################
+
+class Solution:
+    def nextGreaterElement(nums1, nums2):
+
+        nums1Idx = { n:i for i, n in enumerate(nums1) }
+        res = [-1] * len(nums1)
+
+        stack = []
+        for i in range(len(nums2)):
+            cur = nums2[i]
+
+            while stack and cur > stack[-1]:
+                val = stack.pop() 
+                idx = nums1Idx[val]
+                res[idx] = cur
+
+            if cur in nums1Idx:
+                stack.append(cur)
+        
+        return res
+
+
+# m = size of array
+# Time: O(m + n)
+# Space: O(m)
