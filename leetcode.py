@@ -2518,3 +2518,19 @@ class Solution:
 ##  Range Sum Query - Immutable  ##
 ###################################
 
+
+
+############
+## Review ##
+############
+
+def twoSum(nums, target):
+    hashmap = {}
+    for idx, num in enumerate(nums, 0):
+        complement =  target - num
+        if complement in hashmap:
+            return (hashmap[complement], idx)
+        hashmap[num] = idx
+        
+
+print(twoSum([3,3], 6))

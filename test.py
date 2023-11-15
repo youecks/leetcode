@@ -1,5 +1,9 @@
-def twoSum(nums, target):
-    
+def longestCommonPrefix(strs):
+    pref = ""
+
+    # do this for the length of flower
+    for i in range(len(strs[0])):
+        print(i)
 
 
-twoSum([2,7,11,15], 9)
+longestCommonPrefix(["flower","flow","flight"])
