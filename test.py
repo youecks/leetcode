@@ -1,9 +1,16 @@
-def longestCommonPrefix(strs):
+def longestCommonPrefix(arr):
     pref = ""
 
-    # do this for the length of flower
-    for i in range(len(strs[0])):
-        print(i)
+    
+    for i in range(len(arr[0])):
+    
+        for idx in arr:
+        
+            if idx[i] == arr[0][i] and idx[i] != len(idx):
+                print(len(idx))
+            
+
+
 
 
 longestCommonPrefix(["flower","flow","flight"])
