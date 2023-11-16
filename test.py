@@ -1,16 +1,15 @@
 def longestCommonPrefix(arr):
-    pref = ""
+    pref = ''
 
-    
-    for i in range(len(arr[0])):
-    
-        for idx in arr:
-        
-            if idx[i] == arr[0][i] and idx[i] != len(idx):
-                print(len(idx))
-            
-
-
+    for idx in range(len(arr[0])):
+        for el in arr:
+        #      num         num
+            if idx == len(el):
+                return pref
+            if el[idx] != arr[0][idx]:
+                return pref
+        pref += el[idx]
 
 
-longestCommonPrefix(["flower","flow","flight"])
+
+print(longestCommonPrefix(["dog","dacecar","dar"]))
