@@ -1,15 +1,19 @@
-def longestCommonPrefix(arr):
-    pref = ''
+def removeElement(nums, val):
+    k = 0
+    for i in range(len(nums)):
+        # 0, 1, 2, 3
 
-    for idx in range(len(arr[0])):
-        for el in arr:
-        #      num         num
-            if idx == len(el):
-                return pref
-            if el[idx] != arr[0][idx]:
-                return pref
-        pref += el[idx]
+        if nums[i] != val:
+        #   2 not equal to 3
 
+            nums[k] = nums[i]
+            # 2 = 3
 
+            k += 1
+            # non val nums + 1
+    print(k)
+    return nums
+    
 
-print(longestCommonPrefix(["dog","dacecar","dar"]))
+print(removeElement([0,1,2,2,3,0,4,2], 2))
+#                   
