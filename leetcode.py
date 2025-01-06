@@ -2549,10 +2549,5 @@ def removeElement(nums, val):
 def twoSum(nums,target):
   hmap = {} # val : index
 
-  for i, n in enumerate(nums):
-     diff = target - n
-     if diff in hmap:
-        return [hmap[diff], i]
-     hmap[n] = i
-  return
+
   
